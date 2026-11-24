@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>말이 좀 많습니다 · 박준수</title>
+<meta name="description" content="박준수 · 30초 자기소개 영상">
+<style>
+/* 13주 · 30초 홍보 영상 공개 페이지 — 폰은 4:5판, 데스크탑은 16:9판. 영상과 같은 바랜 필름 톤 · 명조 */
+@font-face { font-family: MB; src: url(fonts/MaruBuri-Regular.woff2) format("woff2"); font-display: swap; }
+@font-face { font-family: JBM; src: url(fonts/JetBrainsMono-400.woff2) format("woff2"); font-display: swap; }
+:root { --paper: #ede4cf; --ink: #2a2420; --mute: #8b7f6a; --stamp: #e8762d; }
+* { box-sizing: border-box; margin: 0; }
+html { background: var(--paper); }
+body { min-height: 100vh; color: var(--ink); font-family: MB, "Noto Serif KR", serif; display: flex; flex-direction: column; align-items: center; padding: clamp(20px, 4vw, 56px) clamp(16px, 4vw, 56px) 40px; gap: clamp(18px, 2.6vw, 30px);
+  background: radial-gradient(ellipse at 50% 40%, rgba(255,250,236,.6), rgba(0,0,0,0) 60%), var(--paper); }
+header { width: 100%; max-width: 1180px; display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+.tag { font: 400 13px JBM, monospace; color: var(--mute); letter-spacing: .08em; }
+h1 { font-weight: 400; font-size: clamp(30px, 4.4vw, 56px); letter-spacing: -.01em; line-height: 1.15; }
+.frame { width: 100%; max-width: min(1180px, calc((100vh - 230px) * 16 / 9)); min-width: min(100%, 560px); background: #f6f1e4; padding: clamp(8px, 1.2vw, 16px); box-shadow: 0 18px 44px rgba(42,36,32,.22), 0 2px 4px rgba(42,36,32,.15); }
+video { display: block; width: 100%; height: auto; background: #111; }
+.v-port { display: none; }
+@media (max-width: 760px), (max-aspect-ratio: 4/5) {
+  .v-land { display: none; } .v-port { display: block; }
+  .frame { max-width: 560px; }
+  header { flex-direction: column; gap: 6px; }
+}
+.line { width: 100%; max-width: 1180px; display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 10px 24px; }
+.line p { font-size: clamp(18px, 2vw, 24px); }
+.line .date { font: 400 15px JBM, monospace; color: var(--stamp); letter-spacing: .06em; }
+.credit { width: 100%; max-width: 1180px; font: 400 12px/1.7 JBM, monospace; color: var(--mute); }
+</style>
+</head>
+<body>
+  <header>
+    <h1>말이 좀 많습니다</h1>
+    <span class="tag">박준수 · 30초 자기소개 · ▶를 누르면 소리와 함께 재생돼요</span>
+  </header>
+
+  <div class="frame">
+    <video class="v-land" src="video/promo_16x9.mp4" controls playsinline preload="metadata"></video>
+    <video class="v-port" src="video/promo_4x5.mp4" controls playsinline preload="metadata"></video>
+  </div>
+
+  <div class="line">
+    <p>말 많고, 지금처럼 사는 사람.</p>
+    <span class="date">2026 . 11</span>
+  </div>
+
+  <p class="credit">Music — “Just Keep Walking” by Michael Ramir C. (Mixkit) · Photos — 박준수 · Fonts — MaruBuri, JetBrains Mono (OFL)</p>
+
+<script>
+// 화면 폭이 바뀌어 다른 판이 보이게 되면, 숨겨진 쪽 영상은 멈춘다
+const vids = [...document.querySelectorAll('video')];
+const sync = () => vids.forEach(v => { if (getComputedStyle(v).display === 'none' && !v.paused) v.pause(); });
+addEventListener('resize', sync);
+vids.forEach(v => v.addEventListener('play', () => vids.forEach(o => { if (o !== v) o.pause(); })));
+</script>
+</body>
+</html>
