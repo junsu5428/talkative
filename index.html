@@ -228,6 +228,9 @@ body { background: var(--bg); color: var(--fg); }
 .rec::before { background: var(--stamp); }
 .side button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
 @media (hover: hover) { .hud button:hover, .hud a:hover { background: var(--ink); color: var(--paper); } }
+
+/* 작업 사진은 한 장만, 컴퓨터 화면 비율(16:9) 그대로 — 잘리지 않게 */
+.shots { grid-template-columns: 1fr; aspect-ratio: 16 / 9; }
 </style>
 </head>
 <body>
@@ -303,7 +306,6 @@ body { background: var(--bg); color: var(--fg); }
       </div>
       <div class="shots">
         <figure><img src="stills/w10_a.jpg" alt="첫 화면 — 초등학생부터 어른까지" loading="lazy"><figcaption>INTRO</figcaption></figure>
-        <figure><img src="stills/w10_b.jpg" alt="카세트 플레이어 화면" loading="lazy"><figcaption>CASSETTE</figcaption></figure>
       </div>
     </div>
   </section>
@@ -319,7 +321,6 @@ body { background: var(--bg); color: var(--fg); }
       </div>
       <div class="shots">
         <figure><img src="stills/w11_a.jpg" alt="영화표 화면" loading="lazy"><figcaption>TICKET</figcaption></figure>
-        <figure><img src="stills/w11_b.jpg" alt="FIVE FILMS 스크린과 좌석" loading="lazy"><figcaption>FIVE FILMS</figcaption></figure>
       </div>
     </div>
   </section>
@@ -334,7 +335,6 @@ body { background: var(--bg); color: var(--fg); }
         <a class="open" href="https://taste-gallery-wheat.vercel.app/" target="_blank" rel="noopener">사이트 열기 ↗</a>
       </div>
       <div class="shots">
-        <figure><img src="stills/w12_a.jpg" alt="불 꺼진 전시장 첫 화면" loading="lazy"><figcaption>DARK ROOM</figcaption></figure>
         <figure><img src="stills/w12_b.jpg" alt="빛이 켜진 오브젝트" loading="lazy"><figcaption>OBJECT</figcaption></figure>
       </div>
     </div>
