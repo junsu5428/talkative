@@ -55,6 +55,8 @@ const vids = [...document.querySelectorAll('video')];
 const sync = () => vids.forEach(v => { if (getComputedStyle(v).display === 'none' && !v.paused) v.pause(); });
 addEventListener('resize', sync);
 vids.forEach(v => v.addEventListener('play', () => vids.forEach(o => { if (o !== v) o.pause(); })));
+// 재생 전에는 2.8초 화면(사진이 쌓인 첫 장면)을 보여 주고, 처음 ▶를 누르면 0초부터 재생한다
+vids.forEach(v => v.addEventListener('play', () => { if (!v.dataset.started) { v.dataset.started = 1; v.currentTime = 0; } }));
 </script>
 </body>
 </html>
