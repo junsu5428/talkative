@@ -314,7 +314,7 @@ main img { display: block; width: 100%; height: 100%; object-fit: cover; }
 const $ = id => document.getElementById(id);
 const hud = $('hud'), v = $('v');
 // 이 디자인 시스템에는 글자 없는 풀스크린 실사 영상이 맞다 — 정보는 HUD가 맡는다
-const SRC = { land: 'video/hud_16x9.mp4', port: 'video/hud_4x5.mp4' };
+const SRC = { land: 'video/promo_16x9.mp4', port: 'video/promo_4x5.mp4' };   // 첫 화면은 처음 만든 자막판 영상 (글자 없는 HUD판은 video/hud_*.mp4)
 const WORKS = [{ no: '01', href: '#work-01' }, { no: '02', href: '#work-02' }, { no: '03', href: '#work-03' }];
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
